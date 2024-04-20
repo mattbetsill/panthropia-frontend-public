@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>Hi {{data.user.firstname}}</h1>
+<mat-dialog-content mat-dialog-content>
+  <div *ngIf="!data.event.proofrequired && !data.event.groupsubmissionallowed">Press ok to submit attendance</div>
+  <p *ngIf="data.event.proofrequired">Upload any proof image!</p>
+
+  <div class="form-group" *ngIf="!isIndependent && data.event.groupsubmissionallowed">
+
+    <p>
+      <mat-checkbox id="groupsubmission" [formControl]="enableSelect">Group Submission?</mat-checkbox>
+    </p>
+
+  </div>
+
+  <div class="form-group">
+
+    <mat-select id="select" *ngIf="enableSelect.value" [(ngModel)]="additionalUsers" placeholder="Additional Members"
+      multiple>
+      <mat-option [value]="member._id" *ngFor="let member of orgUserList;">{{member.firstname}}
+        {{member.lastname}}</mat-option>
+    </mat-select>
+
+  </div>
+
+
+  <div *ngIf="data.event.proofrequired" class="form-group" id="imageupload">
+    <label for="flyer">Upload Image:</label>
+
+
+    <input id="flyer" type="file" (change)="onFileChanged($event)">
+
+  </div>
+
+
+</mat-dialog-content>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button *ngIf="checkData()" [mat-dialog-close]="getUrl()" cdkFocusInitial>Ok</button>
+  <button mat-button *ngIf="!checkData()" (click)="displayNotif()" cdkFocusInitial>Ok</button>
+</div>

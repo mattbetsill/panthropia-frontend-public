@@ -1,0 +1,33 @@
+<header id="header">
+  <div class="header-menu">
+    <div id="menuback">
+      <div id="backbuttondiv">
+        <div (click)="backButton()" id="icon"><mat-icon>arrow_back</mat-icon></div>
+      </div>
+      <div class="menuicon">
+
+        <div (click)="toggleSideNav()" class="menu-icon material-icons">menu</div>
+      </div>
+    </div>
+    <div class="titlediv">
+      <span class="title">PANTHROPIA <span id="campusname">{{campusName}}</span></span>
+    </div>
+    <div id="userInfo">
+      <div id="username" *ngIf="userName" [routerLink]="proftype">
+        {{userName}}
+      </div>
+      <div id="divinitials" *ngIf="initials">
+        <div id="initials">
+          <div id="innerInitials" [routerLink]="proftype">{{initials}}</div>
+        </div>
+      </div>
+      <div *ngIf="!(initials || userName)" id="loginbutton">
+        <span id="loginspan" routerLink="/login">Login</span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</header>

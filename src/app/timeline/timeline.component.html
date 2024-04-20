@@ -1,0 +1,41 @@
+<div class="slide">
+  <app-infobanner *ngIf="isTimelinePage">
+
+
+  </app-infobanner>
+  <div id="noevents" *ngIf="toggleNoEvents">
+    No Timeline Events To Show!
+  </div>
+  <div *ngIf="eventsArr">
+    <div *ngFor="let event of eventsArr; let i = first;">
+      <div class="dateBuffer" *ngIf="i"></div>
+
+      <div class="datelinecontainer" *ngIf="event.uniqueDate === true">
+        <!-- <div class="dateLine">
+  </div> -->
+        <mat-card id="time">
+          <div id="calicon">
+            <mat-icon id="calendaricon" (click)="calendarnav(event.date)">
+              calendar_today
+            </mat-icon>
+          </div>
+          <h2><span id="coloredbackground">{{event.date | date}}</span></h2>
+          <div id="relativeday">
+            <div *ngIf="isDateToday(event.date)" id="relativeday">
+              Today
+            </div>
+            <div *ngIf="isDateTomorrow(event.date)" id="relativeday">
+              Tomorrow
+            </div>
+            <div *ngIf="isDateDayAfterTomorrow(event.date)" id="relativeday">
+              Day After Tomorrow
+            </div>
+          </div>
+        </mat-card>
+      </div>
+      <app-event [eventData]="event" [organization]="organization" (delete)="deleteEvent($event)"
+        (refresh)="loadEvents()"></app-event>
+
+    </div>
+  </div>
+</div>

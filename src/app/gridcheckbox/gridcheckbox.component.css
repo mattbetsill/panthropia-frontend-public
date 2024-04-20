@@ -1,0 +1,17 @@
+#rejected:checked:after {
+  width: 13px;
+  height: 13px;
+  border-radius: 15px;
+
+  position: relative;
+  background-color: red;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+
+
+}
+
+#accepted {
+  margin-right: 5px;
+}

@@ -1,0 +1,96 @@
+<form *ngIf="registerForm.value.organization" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <mat-card class="registration-card">
+    <mat-card-header>
+
+      <mat-card-title>Edit Profile</mat-card-title>
+
+    </mat-card-header>
+
+    <mat-card-content>
+
+
+
+
+
+      <div class="form-group">
+        <mat-form-field>
+          <input matInput *ngIf="organizationn" [value]="organizationn.organization" placeholder="Organization Name"
+            type="text" formControlName="organization" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.organization.errors }" readonly>
+          <mat-hint *ngIf="submitted && f.organization.errors">
+            <mat-hint *ngIf="f.organization.errors.required">Event Name is required</mat-hint>
+            <mat-hint *ngIf="f.organization.errors.pattern">Event Name is using illegal characters.</mat-hint>
+          </mat-hint>
+        </mat-form-field>
+      </div>
+
+
+
+      <div class="form-group">
+        <mat-form-field>
+          <input matInput *ngIf="organizationn" [value]="organizationn.charity" placeholder="Charitable Organization"
+            type="text" formControlName="charity" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.charity.errors }">
+          <mat-hint *ngIf="submitted && f.charity.errors">
+            <mat-hint *ngIf="f.charity.errors.required">Charity is required</mat-hint>
+            <mat-hint *ngIf="f.charity.errors.pattern">Charity is typed with errors.</mat-hint>
+          </mat-hint>
+        </mat-form-field>
+      </div>
+      <div id="colorlabel">
+        <div>
+          Primary Color
+
+        </div>
+        <div id="spacer"></div>
+        <div id="colorsquare" (click)="toggleOverlay()" [style.background-color]="registerForm.value.primarycolor">
+
+        </div>
+      </div>
+      <div class="form-field">
+        <div id="colorpicker">
+
+          <div id="overlay" *ngIf="showOverlay">
+            <div id="coloroverlay">
+              <div><mat-icon id="xicon" (click)="toggleOverlay()">close</mat-icon></div>
+              <color-sketch (onChange)="handleChange($event)" [color]='selectedcolor'></color-sketch>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="form-group">
+        <mat-form-field id="bio">
+          <textarea matInput cols='100' placeholder="Bio" type="text" formControlName="bio" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.bio.errors }"></textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+
+        <label for="flyer">Profile Image</label>
+        <br>
+        <!--          input id="flyer" type="file"  (change)="onFileChanged($event)"-->
+        <input id="flyer" type="file" (change)="onFileChanged($event)" />
+
+      </div>
+      <div *ngIf="imagePresent">
+        <img [src]="url" id="renderedimage" alt="No image">
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+
+      <button mat-button [disabled]="loading">Submit</button>
+      <!--      <img class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />-->
+      <button mat-button routerLink="../profile">Cancel</button>
+      <mat-spinner *ngIf="loading" [diameter]="30"></mat-spinner>
+
+    </mat-card-actions>
+  </mat-card>
+
+</form>

@@ -1,0 +1,28 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <mat-card-title>
+      Recover Username
+    </mat-card-title>
+    <br />
+    <mat-card-content>
+
+      <div class="form-group">
+        <mat-form-field>
+          <input matInput placeholder="Email" type="text" formControlName="email" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+          <mat-hint *ngIf="submitted && f.email.errors">
+            <mat-hint *ngIf="f.email.errors.required">Email is required</mat-hint>
+            <mat-hint *ngIf="f.email.errors.pattern">Email is typed with errors.</mat-hint>
+          </mat-hint>
+        </mat-form-field>
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+
+      <button mat-button>Submit</button>
+      <button mat-button routerLink="../login">Cancel</button>
+
+    </mat-card-actions>
+  </mat-card>
+</form>

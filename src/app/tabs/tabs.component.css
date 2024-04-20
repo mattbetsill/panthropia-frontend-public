@@ -1,0 +1,72 @@
+button {
+  margin: 10px;
+
+}
+
+.tabsheader {
+  background-color: var(--primarycolor);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, .5) !important;
+}
+
+header {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.line {
+  outline-color: grey;
+  outline-width: 1px;
+  outline-style: solid;
+  height: 0px;
+  width: 100%;
+}
+
+mat-button-toggle {
+  padding: 5px;
+  border: 1px !important;
+  margin: 5px;
+  width: auto;
+  flex-wrap: wrap !important;
+  background-color: var(--primarycolor);
+}
+
+mat-button-toggle-group {
+  border: 0 !important;
+  width: 100%;
+}
+
+.mat-button-toggle-checked {
+  background-color: rgba(0, 0, 0, .1);
+
+}
+
+.tabbutton {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  line-height: 24px;
+  color: var(--secondarycolor);
+
+
+}
+
+
+@media only screen and (max-width: 1000px) {
+  mat-button-toggle {
+
+    padding: 5px;
+    border: 1px !important;
+    margin: 5px;
+    overflow: hidden;
+    display: block;
+    text-overflow: ellipsis;
+    flex-wrap: wrap !important;
+  }
+
+  mat-button-toggle-group {
+
+    flex-wrap: wrap;
+  }
+}

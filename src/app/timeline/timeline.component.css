@@ -1,0 +1,125 @@
+app-event {}
+
+mat-card {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+
+}
+
+h2 {
+  margin: 0px;
+}
+
+#calicon, #relativeday {
+  flex: 1;
+  min-width: 60px;
+}
+
+#calicon {
+  display: flex;
+  align-items: flex-start;
+}
+
+#relativeday {
+  display: flex;
+  justify-content: flex-end;
+  font-weight: bold;
+  font-style: italic;
+  color: grey;
+}
+
+/*.dateLine{*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  align-content: center;*/
+/*  width: 100%;*/
+/*}*/
+.datelinecontainer {
+  display: flex;
+  align-content: center;
+  margin-right: 15%;
+  margin-left: 15%;
+
+
+
+}
+
+.slide {
+
+
+  position: relative;
+}
+
+h2 {
+  width: 100%;
+
+  grid-area: h2;
+
+
+
+
+
+}
+
+#calendaricon {
+  transition: transform .5s;
+}
+
+#calendaricon:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+
+h2 span {
+
+
+  padding: 0 10px;
+
+
+
+}
+
+.dateBuffer {
+  height: 30px;
+}
+
+#coloredbackground {
+  background-color: white;
+}
+
+#whitebackground {
+
+  padding: 0px;
+}
+
+.event {
+  overflow: scroll;
+}
+
+#noevents {
+  display: flex;
+  justify-content: center;
+  padding: 48px;
+  color: darkslategrey;
+  font-size: 24px;
+}
+
+@media only screen and (max-width: 600px) {
+  .datelinecontainer {
+    display: flex;
+    align-content: center;
+    margin-right: 5%;
+    margin-left: 5%;
+
+
+
+
+  }
+
+
+}

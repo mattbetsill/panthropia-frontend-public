@@ -1,0 +1,21 @@
+<app-side-nav [sidenavTemplateRef]="navContent" [direction]="'left'" [navWidth]="280" [duration]="0.5">
+
+</app-side-nav>
+<div class="main-container">
+  <app-header id="header"></app-header>
+  <section id="sect">
+    <router-outlet></router-outlet>
+  </section>
+  <app-footer id="footer"></app-footer>
+</div>
+<ng-template #navContent>
+  <div class="sidenavbutton">
+    <button class="navbutton" routerLink="">Campus Select</button>
+    <button class="navbutton" routerLink="about">About</button>
+    <!--    <button class="navbutton" routerLink="settings">Settings</button>-->
+    <button class="navbutton" routerLink="register">Register Organization</button>
+    <button class="navbutton" routerLink="userregister">Register User</button>
+    <button *ngIf="!currentuser" class="navbutton" routerLink="login">Login</button>
+    <button *ngIf="currentuser" class="navbutton" routerLink="" (click)="logout()">Log Out</button>
+  </div>
+</ng-template>

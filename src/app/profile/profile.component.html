@@ -1,0 +1,54 @@
+<mat-card *ngIf="thisorganization" id="orgcard">
+  <div class="outerContentContainer">
+    <div class="contentContainer">
+      <div id="image" (click)="open()">
+        <img id="picture" *ngIf="thisorganization && thisorganization.image" [src]="thisorganization.image"
+          alt="Loading...">
+        <img id="picture" *ngIf="thisorganization && !thisorganization.image" src="./assets/templeicon2.png"
+          alt="orgpic">
+      </div>
+
+      <div id="info">
+        <mat-card-title id="title">
+          {{thisorganization ? thisorganization.organization: ' '}}
+        </mat-card-title>
+        <div id="bio">
+          <div id="lineacross"></div>
+
+          {{thisorganization ? thisorganization.bio: ''}}
+        </div>
+
+        <div id="charity">
+          <div id="benefitting">
+            Benefitting
+          </div>
+          <div id="lineacrosscharity"></div>
+          <div id="actualcharity">
+            {{thisorganization ? thisorganization.charity: ''}}
+          </div>
+        </div>
+        <div class="eventbutton">
+          <!--      <button mat-raised-button>load all events</button>-->
+        </div>
+      </div>
+    </div>
+
+    <div class="editbutton">
+      <button mat-raised-button routerLink="../editprofile">edit</button>
+    </div>
+  </div>
+  <div id="overlay" *ngIf="showOverlay">
+    <div id="imageoverlay">
+      <img id="full" *ngIf="thisorganization && thisorganization.image" [src]="thisorganization.image">
+    </div>
+    <div id="closeButton">
+      <button mat-raised-button id="close" (click)="close()">Close X</button>
+    </div>
+  </div>
+</mat-card>
+<mat-card><mat-card-content>
+    <div id="archivedtitle">
+      Archived Events
+    </div>
+  </mat-card-content></mat-card>
+<app-timeline *ngIf="thisorganization._id" #timeline [organization]="thisorganization" [profile]="true"></app-timeline>

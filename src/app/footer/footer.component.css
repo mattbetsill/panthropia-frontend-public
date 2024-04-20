@@ -1,0 +1,39 @@
+#outercontainer {
+  width: 100%;
+  height: auto;
+  padding: 24px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  align-items: center;
+  background-color: var(--secondarycolor);
+  color: lightgrey;
+
+}
+
+#info {
+  font-size: 24px;
+  font-weight: bold;
+  padding-bottom: 24px;
+  text-align: center;
+  line-height: 30px;
+}
+
+#buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  flex: 1;
+  text-align: center;
+  font-size: 16px;
+}
+
+.button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

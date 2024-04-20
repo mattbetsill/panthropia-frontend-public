@@ -1,0 +1,151 @@
+<div class="outercontainer" *ngIf="eventData">
+  <mat-card>
+    <div class="container">
+
+
+      <div class="leftmostcontainer">
+        <div class="host">
+
+          <div id="hosttitle">
+            {{eventData.eventType}}
+
+          </div>
+          <div id="hosttext">
+            <button id="host" mat-button (click)="navigate($event)">
+              {{eventData.hostref.organization}}
+            </button>
+          </div>
+
+        </div>
+        <div id="spacer">
+
+        </div>
+
+        <div class="title">
+          <div class="titlespan" (click)="goToEvent()">
+            <mat-icon *ngIf="eventData.privateEvent"
+              matTooltip="Private Event: Only members of organizations specified by the host can see this event.">lock</mat-icon>
+            <div class="titlespan" (click)="goToEvent()">
+              {{eventname}}
+            </div>
+          </div>
+        </div>
+
+        <div class="time">
+          <span class="timespan">
+            {{time}}
+          </span>
+        </div>
+
+        <div class="info" *ngIf="infoPresent || (!currentUser || currentUser.role === userRole) ">
+          <button id="info" (click)="toggleInfo()">{{toggleText()}}</button>
+
+
+        </div>
+      </div>
+      <div class="middlecontainer">
+        <div class="flyer">
+          <div id="thumbnailcontainer">
+            <img id="thumbnail" [src]="image" (click)="open()" alt="Loading...">
+            <div id="overlay" *ngIf="showOverlay">
+              <div id="imageoverlay">
+                <img id="full" [src]="image">
+              </div>
+              <div id="closeButton">
+                <button mat-raised-button id="close" (click)="close()">Close X</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="rightcontainer">
+        <div class="menu">
+          <button mat-icon-button id="menubutton" [matMenuTriggerFor]="menu" aria-label="Delete or edit">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="openDialog()"
+              *ngIf="(!currentUser || currentUser.role === userRole) && !eventData.qrcoderequired">
+              <mat-icon>how_to_reg</mat-icon>
+              <span>Submit Attendance</span>
+            </button>
+            <button mat-menu-item *ngIf="excuse" (click)="excuseSubmission()">
+              <mat-icon>edit_note</mat-icon>
+              <span>Submit Excuse</span>
+            </button>
+            <button *ngIf="rendermenu" mat-menu-item (click)="editEvent()">
+              <mat-icon>edit</mat-icon>
+              <span>Edit</span>
+            </button>
+            <button *ngIf="rendermenu" mat-menu-item (click)="deleteEvent()">
+              <mat-icon>delete</mat-icon>
+              <span>Delete</span>
+            </button>
+            <button *ngIf="rendermenu" mat-menu-item (click)="archiveEvent()">
+              <div *ngIf="!archived">
+                <mat-icon>archive</mat-icon>
+                <span>Archive</span>
+              </div>
+              <div *ngIf="archived">
+                <mat-icon>unarchive</mat-icon>
+                <span>Un-Archive</span>
+              </div>
+            </button>
+            <button *ngIf="rendermenu && event.qrcoderequired" mat-menu-item (click)="qrCode()">
+              <div>
+                <mat-icon>qr_code_2</mat-icon>
+                <span *ngIf="!event.qrcode">Generate QR code</span>
+                <span *ngIf="event.qrcode">View QR code</span>
+              </div>
+            </button>
+            <button mat-menu-item (click)="navToEvent()">
+              <mat-icon>feed</mat-icon>Event
+            </button>
+          </mat-menu>
+        </div>
+
+      </div>
+
+
+    </div>
+    <div id="extension" *ngIf="renderinfo">
+      <div id="extendinfo">
+        <div id="location" *ngIf="eventData.hasLocation">
+          <div class="subheading">
+            Location:
+          </div>
+          <div class="content">
+            {{eventData.location}}
+          </div>
+        </div>
+        <div id="charity" *ngIf="eventData.eventType === 'Philanthropy'">
+          <div class="subheading">
+            Benefitting:
+          </div>
+          <div class="content">
+            {{eventData.charity}}
+          </div>
+        </div>
+        <div id="additionalinfo" *ngIf="info">
+          <div class="subheading">
+            Additional Information:
+          </div>
+          <div class="content">
+            {{info}}
+          </div>
+        </div>
+
+      </div>
+      <div id="extendattend">
+
+        <button (click)="openDialog()"
+          *ngIf="(!currentUser || currentUser.role === userRole) && !eventData.qrcoderequired" mat-raised-button
+          color="success">I attended!</button>
+        <button *ngIf="(!currentUser || currentUser.role === userRole) && eventData.qrcoderequired" mat-raised-button>QR
+          Code Required</button>
+      </div>
+    </div>
+  </mat-card>
+
+</div>

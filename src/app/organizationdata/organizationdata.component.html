@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-header id="header">
+    <h1>{{eventd.eventName}} - <span id="org">{{eventd.hostref.organization}}</span></h1>
+  </mat-card-header>
+  <mat-card-content id="date">{{eventd.date | date}}</mat-card-content>
+
+  <mat-card-content *ngIf="attendanced">
+    <div class="subheading">Attended By: </div>
+    <div>{{attendanced.length}}</div>
+  </mat-card-content>
+
+
+  <mat-card-content>
+    <div class="info">
+      <button id="info" (click)="toggleInfo()">{{toggleText()}}</button>
+      <br>
+      <div id="extension" *ngIf="renderinfo">
+
+        <app-orgattendancegrid [attendanced]="attendanced" [host]="eventd.hostref"
+          [event]="eventd"></app-orgattendancegrid>
+
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,26 @@
+<mat-card id="container">
+  <header>
+    <div class="line">
+
+    </div>
+    <div class="tabsheader">
+      <mat-button-toggle-group name="tab" [value]="currTab">
+        <mat-button-toggle value="MyEvents" routerLink="myevents">My Events</mat-button-toggle>
+        <mat-button-toggle value="MyOrganization" routerLink="myorganization">My Organization</mat-button-toggle>
+      </mat-button-toggle-group>
+      <div class="dateinput">
+        <div class="date">
+          <mat-form-field>
+            <input (change)="onDateChange($event)" matInput placeholder="Date" type="date" class="input">
+
+          </mat-form-field>
+        </div>
+        <div class="button">
+          <button mat-raised-button (click)="enterDate()">enter</button>
+        </div>
+      </div>
+    </div>
+    <div class="line"></div>
+  </header>
+</mat-card>
+<router-outlet></router-outlet>

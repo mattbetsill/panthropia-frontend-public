@@ -1,0 +1,134 @@
+mat-card {
+  margin: 10px;
+  max-width: 98%;
+  overflow: visible;
+  box-shadow: var(--shadow) !important;
+}
+
+.outerContentContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contentContainer {
+  display: flex;
+}
+
+#title {
+  grid-area: title;
+
+}
+
+#bio {
+  overflow-y: auto;
+  grid-area: bio;
+}
+
+#info {
+  margin-left: 16px;
+  padding-right: 16px;
+}
+
+#image {
+  grid-area: image;
+}
+
+#benefitting {
+  font-weight: bold;
+}
+
+#image:hover {
+  cursor: pointer;
+
+  opacity: .8;
+
+}
+
+#lineacrosscharity {
+  border-top: 1px solid grey;
+  padding-bottom: 5px;
+  width: 100px
+}
+
+
+#charity {
+  padding-top: 10px;
+  padding-bottom: 16px;
+  grid-area: charity;
+}
+
+.eventbutton {
+  grid-area: but;
+  margin-top: 30px;
+
+}
+
+
+
+#biotitle {
+  color: grey;
+
+
+}
+
+#lineacross {
+  border-top: 1px solid grey;
+  padding-bottom: 5px;
+}
+
+#editbutton {
+  padding-left: 10px;
+
+}
+
+#overlay {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#full {
+  display: block;
+  margin: auto;
+  margin-top: 100px !important;
+  min-width: 250px;
+  max-height: 70vh !important;
+  max-width: 70vw !important;
+
+}
+
+#closeButton {
+  margin-top: 8px;
+
+}
+
+#close {
+  display: block;
+  margin: auto;
+  background: white;
+}
+
+#archivedtitle {
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+}
+
+
+@media only screen and (max-width: 1000px) {
+
+
+
+
+  .eventbutton {
+    margin-top: -15px;
+  }
+}

@@ -1,0 +1,42 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: 25% 75%;
+
+  grid-template-areas: 'names org';
+
+
+
+}
+
+#nameContainer {
+  min-width: 200px;
+
+  grid-area: names;
+}
+
+#bioContainer {
+
+  grid-area: org;
+
+}
+
+
+@media only screen and (max-width: 1000px) {
+  .gridContainer {
+    grid-template-columns: 100%;
+    grid-template-areas: 'names'
+      'org';
+
+
+  }
+
+  #nameContainer {
+    font-size: 400px;
+  }
+
+  #bioContainer {
+    margin-top: -10px;
+  }
+
+
+}

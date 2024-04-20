@@ -1,0 +1,14 @@
+mat-card {
+    margin: 30px;
+
+}
+
+#qrcodecontainer {
+    display: flex;
+    justify-content: center;
+}
+
+#orgname {
+    font-style: italic;
+    color: grey;
+}

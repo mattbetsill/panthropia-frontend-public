@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b628ad4f-cde7-452a-8cba-1d6ab5053900" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="ProjectId" id="1ptu8AOJhdBjR1DJtHSH5wANs6O" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PanthropiaNode" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Users\mbets\Documents\Angular\Pantropia\Panthropia\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mbets\Documents\Angular\Pantropia\Panthropia\src\assets" />
+      <recent name="C:\Users\mbets\Documents\Angular\Pantropia\Panthropia\src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mbets\Documents\Angular\Pantropia\Panthropia\src\app\services" />
+      <recent name="C:\Users\mbets\Documents\Angular\Pantropia\Panthropia\src\app\models" />
+      <recent name="C:\Users\mbets\Documents\Angular\Pantropia\pantropiaAngular\src\app" />
+      <recent name="C:\Users\mbets\Documents\Angular\Pantropia\pantropiaAngular\src\app\services" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.Angular CLI Server">
+    <configuration name="Tests (pantropiaAngular)" type="JavaScriptTestRunnerKarma">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <working-directory value="$PROJECT_DIR$" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="E2E Tests (pantropiaAngular)" type="JavaScriptTestRunnerProtractor">
+      <config-file value="$PROJECT_DIR$/e2e/protractor.conf.js" />
+      <node-interpreter value="project" />
+      <protractor-options value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b628ad4f-cde7-452a-8cba-1d6ab5053900" name="Default Changelist" comment="" />
+      <created>1616014545213</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616014545213</updated>
+      <workItem from="1616014546305" duration="10378000" />
+      <workItem from="1616780344342" duration="8000" />
+      <workItem from="1617474945348" duration="14173000" />
+      <workItem from="1617489432174" duration="25857000" />
+      <workItem from="1618531381393" duration="43133000" />
+      <workItem from="1618706001192" duration="2632000" />
+      <workItem from="1618712051750" duration="1535000" />
+      <workItem from="1619652272603" duration="79363000" />
+      <workItem from="1620151888049" duration="29775000" />
+      <workItem from="1620694137216" duration="19894000" />
+      <workItem from="1620783261561" duration="9915000" />
+      <workItem from="1620924263580" duration="67982000" />
+      <workItem from="1622570721663" duration="2306000" />
+      <workItem from="1626329209815" duration="31513000" />
+      <workItem from="1628733052698" duration="38354000" />
+      <workItem from="1628933267286" duration="49551000" />
+      <workItem from="1629174327430" duration="63738000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1086" y="417" key="#com.intellij.ide.util.MemberChooser" timestamp="1629300335543">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1086" y="417" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400/3840.611.1920.1040@0.0.2560.1400" timestamp="1629300335543" />
+    <state x="1061" y="456" key="FileChooserDialogImpl" timestamp="1621210159206">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1061" y="456" key="FileChooserDialogImpl/0.0.2560.1400/3840.611.1920.1040@0.0.2560.1400" timestamp="1621210159206" />
+    <state x="3833" y="611" width="665" height="1047" key="dock-window-1" timestamp="1628733438762">
+      <screen x="3840" y="611" width="1920" height="1040" />
+    </state>
+    <state x="3833" y="611" width="665" height="1047" key="dock-window-1/0.0.2560.1400/3840.611.1920.1040@0.0.2560.1400" timestamp="1628733438762" />
+    <state x="987" y="300" width="587" height="801" key="find.popup" timestamp="1626337257446">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="987" y="300" width="587" height="801" key="find.popup/0.0.2560.1400/3840.611.1920.1040@0.0.2560.1400" timestamp="1626337257446" />
+    <state x="297" y="334" key="run.anything.popup" timestamp="1628986603472">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="297" y="334" key="run.anything.popup/0.0.2560.1400/3840.611.1920.1040@0.0.2560.1400" timestamp="1628986603472" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1628938492492">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/3840.611.1920.1040@0.0.2560.1400" timestamp="1628938492492" />
+  </component>
+</project>

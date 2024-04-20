@@ -1,0 +1,124 @@
+<div id="outercontainer">
+  <mat-card id="card">
+    <div id="cardcontainer">
+      <div>
+        <mat-card-title>
+          {{currentUser.username}}
+        </mat-card-title>
+        <mat-card-header class="subsubheading">Organization Name</mat-card-header>
+        <mat-card-header *ngIf="currentUser && currentUser.orgref; else elseblock">
+          {{currentUser.orgref.organization}}
+        </mat-card-header>
+        <ng-template #elseblock>
+          <mat-card-header>
+            Create your Organization in the profile tab!
+          </mat-card-header>
+        </ng-template>
+
+
+
+        <mat-card-header class="subsubheading">Campus</mat-card-header>
+        <mat-card-header>
+          {{currentUser.campusref.name}}
+        </mat-card-header>
+        <mat-card-header class="subsubheading">Name</mat-card-header>
+        <mat-card-header>
+          {{currentUser.firstname}} {{currentUser.lastname}}
+        </mat-card-header>
+        <mat-card-header class="subsubheading">Email</mat-card-header>
+        <mat-card-header>
+          {{currentUser.email}}
+        </mat-card-header>
+      </div>
+      <div id="editbutton">
+        <button *ngIf="this.currentUser.role.toString() === 'User'" mat-raised-button
+          routerLink="../edituserprofile">edit</button>
+        <button *ngIf="this.currentUser.role.toString() === 'Admin'" mat-raised-button
+          routerLink="../editorguserprofile">edit</button>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>
+      <div class="title" (click)="setAllTime(!allTimeToggle)">
+        <div>
+          Recorded Attendance
+        </div>
+        <mat-icon class="togglebutton" *ngIf="!allTimeToggle">expand_more</mat-icon>
+        <mat-icon class="togglebutton" *ngIf="allTimeToggle">expand_less</mat-icon>
+      </div>
+    </mat-card-title>
+    <mat-card-content *ngIf="allTimeToggle">
+      <div class="button-bar">
+        <button (click)="sizeToFit()">Size to Fit</button>
+        <button (click)="autoSizeAll(false)">Auto-Size All</button>
+        <button (click)="autoSizeAll(true)">Auto-Size All (Skip Header)</button>
+      </div>
+      <ag-grid-angular style="width: auto; height: 500px;" class="ag-theme-alpine" [rowData]="rowData"
+        [columnDefs]="selectedDefs" (gridReady)="onGridReady($event)" [context]="context">
+      </ag-grid-angular>
+    </mat-card-content>
+
+  </mat-card>
+  <mat-card class="datasheets">
+    <mat-card-title>
+      <div class="title" (click)="setAllTimeExcuses(!allTimeToggleExcuses)">
+        <div>
+          Excuses Submitted
+        </div>
+        <mat-icon class="togglebutton" *ngIf="!allTimeToggleExcuses">expand_more</mat-icon>
+        <mat-icon class="togglebutton" *ngIf="allTimeToggleExcuses">expand_less</mat-icon>
+      </div>
+    </mat-card-title>
+    <mat-card-content *ngIf="allTimeToggleExcuses">
+      <div class="button-bar">
+        <button (click)="sizeToFitExcuses()">Size to Fit</button>
+        <button (click)="autoSizeAllExcuses(false)">Auto-Size All</button>
+        <button (click)="autoSizeAllExcuses(true)">Auto-Size All (Skip Header)</button>
+      </div>
+      <ag-grid-angular style="width: auto; height: 500px;" class="ag-theme-alpine" [rowData]="rowDataExcuses"
+        [columnDefs]="columnDefsExcuses" (gridReady)="onGridReadyExcuses($event)" [context]="context">
+      </ag-grid-angular>
+    </mat-card-content>
+
+  </mat-card>
+
+
+</div>
+<div class="overlay" *ngIf="showOverlayToggle">
+  <div id="imageoverlay">
+    <img id="full" [src]="image">
+  </div>
+  <div id="closeButton">
+    <button mat-raised-button id="close" (click)="close()">Close X</button>
+  </div>
+</div>
+
+<div class="overlay" *ngIf="showConfirmationToggle">
+  <div id="overlayinner">
+    <mat-card>
+      <mat-card-content>Are you sure you want to delete this attendance record? This cannot be
+        undone.</mat-card-content>
+      <div mat-dialog-actions id="actions">
+        <button mat-button (click)="closeConfirm()">No Thanks</button>
+        <button mat-button cdkFocusInitial (click)="deleteAttendance()">
+          <div id="delete">Delete</div>
+        </button>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<div class="overlay" *ngIf="showConfirmationExcuseToggle">
+  <div id="overlayinner">
+    <mat-card>
+      <mat-card-content>Are you sure you want to delete this excuse record? This cannot be undone.</mat-card-content>
+      <div mat-dialog-actions id="actions">
+        <button mat-button (click)="closeConfirmExcuse()">No Thanks</button>
+        <button mat-button cdkFocusInitial (click)="deleteExcuse()">
+          <div id="delete">Delete</div>
+        </button>
+      </div>
+    </mat-card>
+  </div>
+</div>

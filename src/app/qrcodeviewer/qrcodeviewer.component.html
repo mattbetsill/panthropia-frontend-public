@@ -1,0 +1,9 @@
+<mat-card *ngIf="eventdata">
+    <mat-card-title>
+        {{eventdata.eventName}} - <span id="orgname">{{eventdata.hostref.organization}}</span>
+    </mat-card-title>
+    <div id="qrcodecontainer">
+        <qrcode [qrdata]='url' [width]="windowheight" [errorCorrectionLevel]="'M'"></qrcode>
+    </div>
+    <button mat-button color="warn" (click)="deactivate()">De-Activate QR code</button>
+</mat-card>

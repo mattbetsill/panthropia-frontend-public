@@ -1,0 +1,36 @@
+<div>
+  <div class="button-bar">
+    <button (click)="sizeToFit()">Size to Fit</button>
+    <button (click)="autoSizeAll(false)">Auto-Size All</button>
+    <button (click)="autoSizeAll(true)">Auto-Size All (Skip Header)</button>
+  </div>
+  <div class="attendeelabel">Attendees</div>
+  <ag-grid-angular style="width: auto; height:400px;" class="ag-theme-alpine" [rowData]="rowData"
+    [columnDefs]="columnDefs" (gridReady)="onGridReady($event)" [context]="context">
+  </ag-grid-angular>
+  <div class="nonattendeeheader">
+    <div class="attendeelabel">Non-Attendees</div>
+
+
+  </div>
+  <ag-grid-angular style="width: auto; height:400px;" class="ag-theme-alpine" [rowData]="nonAttendeeRowData"
+    [columnDefs]="nonAttendeeColumnDefs" (gridReady)="onGridReadyNon($event)" [context]="context">
+  </ag-grid-angular>
+  <div class="attendeelabel">Excuses</div>
+  <ag-grid-angular style="width: auto; height:400px;" class="ag-theme-alpine" [rowData]="excuseRowData"
+    [columnDefs]="excusesColumnDefs" (gridReady)="onGridReadyExcuse($event)" [context]="context">
+  </ag-grid-angular>
+
+  <div class="attendeelabel">Attending Organizations</div>
+  <ag-grid-angular style="width: auto; height:400px;" class="ag-theme-alpine" [rowData]="attendanceAnalysisRowData"
+    [columnDefs]="attendanceAnalysisColumnDefs" (gridReady)="onGridReadyOrg($event)" [context]="context">
+  </ag-grid-angular>
+</div>
+<div id="overlay" *ngIf="showOverlayToggle">
+  <div id="imageoverlay">
+    <img id="full" [src]="image">
+  </div>
+  <div id="closeButton">
+    <button mat-raised-button id="close" (click)="close()">Close X</button>
+  </div>
+</div>

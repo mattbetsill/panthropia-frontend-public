@@ -1,0 +1,62 @@
+mat-card {
+  margin: 10px;
+
+}
+
+#bio {
+  width: 70% !important;
+}
+
+#renderedimage {
+  margin-top: 24px;
+  border-radius: 12px;
+  max-width: 200px;
+}
+
+#colorpicker {
+  width: 50%;
+}
+
+#coloroverlay {
+  width: 50%;
+
+}
+
+#spacer {
+  width: 10px;
+}
+
+#overlay {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#colorlabel {
+  display: flex;
+  margin-bottom: 10px;
+
+}
+
+#colorsquare {
+  height: 20px;
+  width: 50px;
+}
+
+#colorsquare:hover {
+  cursor: pointer;
+}
+
+#xicon {
+  color: white;
+}

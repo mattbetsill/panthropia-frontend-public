@@ -1,0 +1,19 @@
+<mat-card id="individual">
+  <mat-card-content id="name">{{attendant.username}}</mat-card-content>
+  <mat-card-content id="organization">{{attendant.organization}}</mat-card-content>
+  <mat-card-content id="proof">
+    <div class="flyer">
+
+      <button id="proofbutton" mat-raised-button (click)="open()">View Proof</button>
+      <div *ngIf="showOverlay" id="overlay">
+        <div id="imageoverlay">
+          <img id="full" [src]='attendant.proof'>
+        </div>
+        <div id="closeButton">
+          <button mat-raised-button color="success" id="close" (click)="close()">Close X</button>
+        </div>
+      </div>
+
+    </div>
+  </mat-card-content>
+</mat-card>

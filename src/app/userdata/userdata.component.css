@@ -1,0 +1,95 @@
+mat-card {
+
+  margin: 10px;
+  height: 50px;
+
+}
+
+#overlay {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#imageoverlay {
+  max-height: 70%;
+}
+
+#full {
+  display: block;
+  margin: auto;
+  margin-top: 100px !important;
+  max-width: 80vw;
+  max-height: 80vw;
+  margin-bottom: 100px !important;
+}
+
+#closeButton {
+
+  margin: auto;
+}
+
+#close {
+  display: block;
+  margin: auto;
+  background: white;
+}
+
+#individual {
+  display: grid;
+  grid-template-columns: 100px auto 200px;
+  grid-template-areas: 'name organization proof';
+}
+
+#name {
+  grid-area: name;
+}
+
+#organization {
+  text-align: center;
+  grid-area: organization;
+  text-overflow: ellipsis;
+}
+
+#proof {
+  grid-area: proof;
+}
+
+.flyer {
+  grid-area: flyer;
+}
+
+#proofbutton {
+  margin-top: -15px;
+}
+
+@media only screen and (max-width: 600px) {
+  #individual {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-areas: 'name organization proof';
+    grid-column-gap: 10px;
+
+  }
+
+  #organization {
+    overflow-x: scroll;
+  }
+
+  #name {
+
+    overflow-x: scroll;
+  }
+
+  mat-card-content {
+    margin-bottom: 0px;
+  }
+}

@@ -1,0 +1,9 @@
+<mat-card id="card">
+  <div class='container'>
+    <mat-card-title>Organizations</mat-card-title>
+    <div id='spacer'></div>
+    <mat-card-content *ngFor="let org of organizations">
+      <a id="orgbutton " mat-button (click)="modifyUrl(org._id)">{{org.organization}}</a>
+    </mat-card-content>
+  </div>
+</mat-card>

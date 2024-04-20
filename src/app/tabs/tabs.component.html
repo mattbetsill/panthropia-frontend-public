@@ -1,0 +1,43 @@
+<header>
+
+  <div class="line">
+
+  </div>
+  <div class="tabsheader">
+    <mat-button-toggle-group name="tab" [value]="selected">
+      <mat-button-toggle class="tabbutton" value="Timeline" routerLink="timeline">
+        <div class="tabbutton">
+          <mat-icon>feed</mat-icon>
+          Timeline
+        </div>
+      </mat-button-toggle>
+      <mat-button-toggle value="Organizations" routerLink="organizations">
+        <div class="tabbutton">
+          <mat-icon>maps_home_work</mat-icon>
+          Organizations
+        </div>
+      </mat-button-toggle>
+      <mat-button-toggle *ngIf="currentUser && currentUser.role == rOrg" value="CreateEvent" routerLink="createevent">
+        <div class="tabbutton">
+          <mat-icon>event</mat-icon>
+          Create Event
+        </div>
+      </mat-button-toggle>
+      <mat-button-toggle *ngIf="currentUser && currentUser.role == rOrg" value="Profile" routerLink="profile">
+        <div class="tabbutton">
+          <mat-icon>people</mat-icon>
+          Profile
+        </div>
+      </mat-button-toggle>
+      <mat-button-toggle *ngIf="currentUser && currentUser.role == rOrg" value="AttendanceData"
+        routerLink="attendancedata/myevents">
+        <div class="tabbutton">
+          <mat-icon>assignment_turned_in</mat-icon>
+          Attendance Data
+        </div>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+
+</header>

@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/ag-grid-community/dist/styles/ag-grid.css";
+@import "../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap');
+@import '~ngx-toastr/toastr.css';
+
+:root {
+  --shadow: 5px 5px 5px rgba(0, 0, 0, .5) !important;
+  --primarycolor: #53B79F;
+  --secondarycolor: #0F082F;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+
+
+}
+
+body {
+  font-family: 'Helvetica', sans-serif;
+
+  background-color: lightgrey;
+
+}

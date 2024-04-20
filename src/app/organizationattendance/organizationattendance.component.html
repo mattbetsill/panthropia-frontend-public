@@ -1,0 +1,8 @@
+<div id="container">
+  <div *ngIf="attendanceRecords && attendanceRecords.length === events.length">
+    <div *ngFor="let event of events; let i = index">
+      <app-organizationdata *ngIf="attendanceRecords" [attendanced]="attendanceRecords[i]" [eventd]="event">
+      </app-organizationdata>
+    </div>
+  </div>
+</div>

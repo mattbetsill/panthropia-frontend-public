@@ -1,0 +1,34 @@
+import { User } from './user';
+import { Time } from '@angular/common';
+export class Event {
+  eventName: string;
+  charity: string;
+  date: Date;
+  starttime: string;
+  endtime: string;
+  enddate: Date;
+  endDateTime: Date;
+  multipledayevent: boolean;
+  info: string;
+  createdBy: string;
+  flyer: string;
+  _id: string;
+  uniqueDate: boolean;
+  privateEvent: boolean;
+  privateOrganizations: [];
+  dateTime: Date;
+  archived: boolean;
+  eventType: string;
+  isDeleted?: boolean;
+  hostref: any;
+  campusref: any;
+  privateorgsref: any;
+  location?: string;
+  hasLocation: boolean;
+  qrcoderequired: boolean;
+  qrcode?: string;
+  proofrequired: boolean;
+  groupsubmissionallowed: boolean;
+  previousqr?: string;
+  acceptexcuses: boolean;
+}

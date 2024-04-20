@@ -1,0 +1,175 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <mat-card class="registration-card">
+    <mat-card-header>
+
+      <mat-card-title>Create Event</mat-card-title>
+
+    </mat-card-header>
+    <mat-card-content>
+      <div class="subheading">
+        Event Options
+      </div>
+
+      <p>
+        <mat-checkbox formControlName='multipledayevent'>Multiple Day Event</mat-checkbox>
+      </p>
+      <p>
+        <mat-checkbox formControlName="hasLocation">Add Location</mat-checkbox>
+      </p>
+      <p>
+        <mat-checkbox [formControl]="enableSelect">Private Event</mat-checkbox>
+      </p>
+    </mat-card-content>
+    <mat-card-content>
+      <div class="subheading">
+        Attendance Options
+      </div>
+      <p>
+        <mat-checkbox formControlName="qrcoderequired">Require QR Code for Attendance Submission</mat-checkbox>
+      </p>
+      <p>
+        <mat-checkbox formControlName="proofrequired">Require Proof Image Attendance Submission</mat-checkbox>
+      </p>
+      <p>
+        <mat-checkbox formControlName="groupsubmissionallowed">Allow Group Attendance Submission</mat-checkbox>
+      </p>
+    </mat-card-content>
+
+
+    <mat-card-content>
+
+
+
+
+
+      <div class="form-group">
+        <mat-form-field>
+          <input matInput placeholder="Event Name" type="text" formControlName="eventName" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.eventName.errors }">
+          <mat-hint *ngIf="submitted && f.eventName.errors">
+            <mat-hint *ngIf="f.eventName.errors.required">Event Name is required</mat-hint>
+            <mat-hint *ngIf="f.eventName.errors.pattern">Event Name is using illegal characters.</mat-hint>
+          </mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field>
+          <mat-select placeholder="Event Type" formControlName="eventType"
+            (selectionChange)="setEventType($event.value)">
+            <mat-option [value]="type" *ngFor="let type of eventTypes">{{type}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group" *ngIf="eventType === 'Philanthropy'">
+        <mat-form-field>
+          <input matInput placeholder="Charitable Organization" type="text" formControlName="charity"
+            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.charity.errors }">
+          <mat-hint *ngIf="submitted && f.charity.errors">
+            <mat-hint *ngIf="f.charity.errors.required">Charity is required</mat-hint>
+            <mat-hint *ngIf="f.charity.errors.pattern">Charity is typed with errors.</mat-hint>
+          </mat-hint>
+        </mat-form-field>
+      </div>
+
+
+      <div class="form-group">
+
+        <mat-form-field>
+          <input matInput placeholder="Date" type="date" formControlName="date" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.date.errors }">
+          <mat-hint *ngIf="submitted && f.date.errors">
+            <mat-hint *ngIf="f.date.errors.required">date is required</mat-hint>
+          </mat-hint>
+        </mat-form-field>
+
+      </div>
+
+
+      <div class="form-group">
+        <mat-form-field>
+          <input matInput placeholder="Start Time" type="time" formControlName="starttime" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.starttime.errors }">
+          <mat-hint *ngIf="submitted && f.starttime.errors">
+            <mat-hint *ngIf="f.starttime.errors.required">Start Time is required</mat-hint>
+          </mat-hint>
+        </mat-form-field>
+      </div>
+
+
+      <div class="form-group">
+
+        <mat-form-field *ngIf="this.registerForm.value.multipledayevent">
+          <input matInput placeholder="End Date" type="date" formControlName="enddate" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.enddate.errors }">
+          <mat-hint *ngIf="submitted && f.enddate.errors">
+            <mat-hint *ngIf="f.enddate.errors.required">date is required</mat-hint>
+          </mat-hint>
+        </mat-form-field>
+
+      </div>
+
+
+
+
+
+      <div class="form-group">
+        <mat-form-field>
+          <input matInput placeholder="End Time" type="time" formControlName="endtime" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.endtime.errors }">
+          <mat-hint *ngIf="submitted && f.endtime.errors">
+            <mat-hint *ngIf="f.endtime.errors.required">End Time is required</mat-hint>
+          </mat-hint>
+        </mat-form-field>
+      </div>
+
+
+      <div class="form-group">
+        <mat-form-field *ngIf="this.registerForm.value.hasLocation">
+          <input matInput placeholder="Location" type="text" formControlName="location" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.location.errors }">
+        </mat-form-field>
+      </div>
+
+
+      <div class="form-group">
+        <mat-form-field>
+          <input matInput placeholder="Additional Information" type="text" formControlName="info" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.info.errors }">
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field>
+          <mat-select placeholder="Organizations" formControlName="privateOrganizations"
+            [disabled]="!enableSelect.value" multiple>
+            <mat-option [value]="org.organization" *ngFor="let org of organizations;">{{org.organization}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <label for="flyer">Upload Flyer/Image:</label>
+        <br>
+        <!--          input id="flyer" type="file"  (change)="onFileChanged($event)"-->
+        <input id="flyer" type="file" (change)="onFileChanged($event)">
+
+      </div>
+      <div *ngIf="imagePresent">
+        <img [src]="url" id="renderedimage" alt="didn't work">
+      </div>
+
+    </mat-card-content>
+
+
+    <mat-card-actions>
+
+      <button mat-button [disabled]="loading">Add Event</button>
+      <button mat-button routerLink="../">Cancel</button>
+      <mat-spinner *ngIf="loading" [diameter]="30"></mat-spinner>
+
+    </mat-card-actions>
+  </mat-card>
+
+</form>

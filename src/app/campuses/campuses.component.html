@@ -1,0 +1,16 @@
+<div class="container" [@simpleFadeAnimation]="'in'">
+  <div class="image">
+    <img id="icon" src="./assets/TransparentLogo.png" alt="temple">
+  </div>
+  <div class="input">
+    <mat-form-field appearance="fill">
+      <mat-label>Select a Campus</mat-label>
+      <mat-select id="selection" [(ngModel)]="selectedCampus">
+        <mat-option (click)="setCampus()" *ngFor="let campus of campuses"
+          [value]='campus.name'>{{campus.name}}</mat-option>
+
+      </mat-select>
+    </mat-form-field>
+    <button *ngIf="selectedCampus" routerLink="campus/{{selectedCampus}}" class="enter" mat-raised-button>Enter</button>
+  </div>
+</div>

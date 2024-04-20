@@ -1,0 +1,47 @@
+<mat-card *ngIf="renderFeatured">
+  <mat-card-title>
+    Featured Organization
+  </mat-card-title>
+</mat-card>
+<mat-card *ngIf="currentOrg" id="orgcard">
+  <div class="contentContainer">
+    <div id="image" (click)="open()">
+      <img id="picture" *ngIf="currentOrg && currentOrg.image" [src]="currentOrg.image">
+      <img id="picture" *ngIf="currentOrg && !currentOrg.image" src="./assets/templeicon2.png" alt="orgpic">
+    </div>
+
+
+    <div id="info">
+      <mat-card-title id="title">
+        {{currentOrg ? currentOrg.organization: ' '}}
+      </mat-card-title>
+      <div id="bio">
+        <div id="lineacross"></div>
+
+        {{currentOrg ? currentOrg.bio: ''}}
+      </div>
+
+      <div id="charity">
+        <div id="benefitting">
+          Benefitting
+        </div>
+        <div id="lineacrosscharity"></div>
+        <div id="actualcharity">
+          {{currentOrg ? currentOrg.charity: ''}}
+        </div>
+      </div>
+      <div class="eventbutton">
+        <!--      <button mat-raised-button>load all events</button>-->
+      </div>
+    </div>
+  </div>
+  <div id="overlay" *ngIf="showOverlay">
+    <div id="imageoverlay">
+      <img id="full" [src]="currentOrg.image">
+    </div>
+    <div id="closeButton">
+      <button mat-raised-button id="close" (click)="close()">Close X</button>
+    </div>
+  </div>
+</mat-card>
+<app-timeline *ngIf="currentOrg" #timeline [organization]="currentOrg"></app-timeline>

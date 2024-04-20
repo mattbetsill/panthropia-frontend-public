@@ -1,0 +1,23 @@
+<mat-card>
+  <form *ngIf="registerForm" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <mat-card-header>
+
+      <mat-card-title>Excuse Form</mat-card-title>
+
+    </mat-card-header>
+    <mat-card-content>
+      <div class="form-group">
+        <mat-form-field id="bio">
+          <textarea matInput placeholder="Reason" type="text" formControlName="info" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.info.errors }"></textarea>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+
+      <button mat-button>Submit</button>
+      <button mat-button routerLink="../timeline">Cancel</button>
+
+    </mat-card-actions>
+  </form>
+</mat-card>

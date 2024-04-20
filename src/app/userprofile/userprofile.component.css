@@ -1,0 +1,95 @@
+#outercontainer {
+  padding: 16px;
+}
+
+#card {
+  margin-bottom: 16px;
+}
+
+#cardcontainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.datasheets {
+  margin-top: 16px;
+}
+
+.overlay {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#actions {
+  display: flex;
+  justify-content: center;
+}
+
+#delete {
+  color: red;
+}
+
+#full {
+  display: block;
+  margin: auto;
+  margin-top: 100px !important;
+  min-width: 250px;
+  max-height: 70vh;
+  max-width: 70vw;
+}
+
+#closeButton {
+
+  margin-top: 8px;
+}
+
+#close {
+  display: block;
+  margin: auto;
+  background: white;
+}
+
+#overlayinner {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subsubheading {
+  margin-top: 16px !important;
+  font-size: 16px;
+  font-weight: bold;
+
+  border-bottom: 1px solid grey;
+  width: 200px;
+  margin-bottom: 8px;
+  margin-left: 24px;
+}
+
+.title:hover {
+  cursor: pointer;
+}
+
+.togglebutton {
+  margin-left: 20px;
+}
+
+.title {
+  display: flex;
+
+
+}
+
+#members {
+  margin-top: 16px;
+}

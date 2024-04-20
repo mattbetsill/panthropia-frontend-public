@@ -1,0 +1,144 @@
+<div id="outercontainer">
+  <mat-card id="card">
+    <div id="cardcontainer">
+      <div>
+        <mat-card-title>
+          {{currentUser.username}}
+        </mat-card-title>
+        <mat-card-header class="subsubheading">Organization Name</mat-card-header>
+        <mat-card-header *ngIf="currentUser && currentUser.orgref; else elseblock">
+          {{currentUser.orgref.organization}}
+        </mat-card-header>
+        <ng-template #elseblock>
+          <mat-card-header>
+            Create your Organization in the profile tab!
+          </mat-card-header>
+        </ng-template>
+
+
+
+        <mat-card-header class="subsubheading">Campus</mat-card-header>
+        <mat-card-header>
+          {{currentUser.campusref.name}}
+        </mat-card-header>
+        <mat-card-header class="subsubheading">Email</mat-card-header>
+        <mat-card-header>
+          {{currentUser.email}}
+        </mat-card-header>
+      </div>
+      <div id="editbutton">
+        <button *ngIf="this.currentUser.role.toString() === 'User'" mat-raised-button
+          routerLink="../edituserprofile">edit</button>
+        <button *ngIf="this.currentUser.role.toString() === 'Admin'" mat-raised-button
+          routerLink="../editorguserprofile">edit</button>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>
+      <div class="title" (click)="setAllTime(!allTimeToggle)">
+        <div>
+          Recorded Attendance
+        </div>
+        <mat-icon class="togglebutton" *ngIf="!allTimeToggle">expand_more</mat-icon>
+        <mat-icon class="togglebutton" *ngIf="allTimeToggle">expand_less</mat-icon>
+      </div>
+    </mat-card-title>
+    <mat-card-content *ngIf="allTimeToggle">
+      <div class="button-bar">
+        <button (click)="sizeToFit()">Size to Fit</button>
+        <button (click)="autoSizeAll(false)">Auto-Size All</button>
+        <button (click)="autoSizeAll(true)">Auto-Size All (Skip Header)</button>
+      </div>
+      <ag-grid-angular style="width: auto; height: 500px;" class="ag-theme-alpine" [rowData]="rowData"
+        [columnDefs]="selectedDefs" (gridReady)="onGridReady($event)" [context]="context">
+      </ag-grid-angular>
+    </mat-card-content>
+
+  </mat-card>
+
+  <mat-card id="members" *ngIf="this.currentUser.role === 'Admin'">
+    <mat-card-title>
+      <div class="title" (click)="setMember(!memberToggle)">
+        <div>
+          Members
+        </div>
+        <mat-icon class="togglebutton" *ngIf="!memberToggle">expand_more</mat-icon>
+        <mat-icon class="togglebutton" *ngIf="memberToggle">expand_less</mat-icon>
+      </div>
+    </mat-card-title>
+    <mat-card-content *ngIf="memberToggle">
+      <div class="button-bar">
+        <button (click)="sizeToFitOrg()">Size to Fit</button>
+        <button (click)="autoSizeAllOrg(false)">Auto-Size All</button>
+        <button (click)="autoSizeAllOrg(true)">Auto-Size All (Skip Header)</button>
+      </div>
+      <ag-grid-angular style="width: auto; height: 500px;" class="ag-theme-alpine" [rowData]="orgMemData"
+        [columnDefs]="columnDefsOrgMembers" (gridReady)="onGridReadyOrg($event)" [context]="context">
+      </ag-grid-angular>
+    </mat-card-content>
+
+  </mat-card>
+
+  <mat-card id="members">
+    <mat-card-title>
+      <div class="title" (click)="setExcuse(!excuseToggle)">
+        <div>
+          Submitted Excuses
+        </div>
+        <mat-icon class="togglebutton" *ngIf="!excuseToggle">expand_more</mat-icon>
+        <mat-icon class="togglebutton" *ngIf="excuseToggle">expand_less</mat-icon>
+      </div>
+    </mat-card-title>
+    <mat-card-content *ngIf="excuseToggle">
+      <div class="button-bar">
+        <button (click)="sizeToFitOrgExcuses()">Size to Fit</button>
+        <button (click)="autoSizeAllOrgExcuses(false)">Auto-Size All</button>
+        <button (click)="autoSizeAllOrgExcuses(true)">Auto-Size All (Skip Header)</button>
+      </div>
+      <ag-grid-angular style="width: auto; height: 500px;" class="ag-theme-alpine" [rowData]="excuseData"
+        [columnDefs]="columnDefsOrgExcuses" (gridReady)="onGridReadyOrgExcuses($event)" [context]="context">
+      </ag-grid-angular>
+    </mat-card-content>
+
+  </mat-card>
+
+</div>
+<div class="overlay" *ngIf="showOverlayToggle">
+  <div id="imageoverlay">
+    <img id="full" [src]="image">
+  </div>
+  <div id="closeButton">
+    <button mat-raised-button id="close" (click)="close()">Close X</button>
+  </div>
+</div>
+
+<div class="overlay" *ngIf="showConfirmationToggle">
+  <div id="overlayinner">
+    <mat-card>
+      <mat-card-content>Are you sure you want to delete this attendance record? This cannot be
+        undone.</mat-card-content>
+      <div mat-dialog-actions id="actions">
+        <button mat-button (click)="closeConfirm()">No Thanks</button>
+        <button mat-button cdkFocusInitial (click)="deleteAttendance()">
+          <div id="delete">Delete</div>
+        </button>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<div class="overlay" *ngIf="showConfirmationMemberToggle">
+  <div id="overlayinner">
+    <mat-card>
+      <mat-card-content>Are you sure you want to remove this member of your organization? This cannot be
+        undone.</mat-card-content>
+      <div mat-dialog-actions id="actions">
+        <button mat-button (click)="closeConfirmMember()">No Thanks</button>
+        <button mat-button cdkFocusInitial (click)="removeMember()">
+          <div id="delete">Remove</div>
+        </button>
+      </div>
+    </mat-card>
+  </div>
+</div>
